@@ -1,0 +1,13 @@
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+[core]
+	sshCommand = ssh.exe
+{{   end }}
+{{ end }}
+[user]
+	name = ecto0310
+	email = 48977990+ecto0310@users.noreply.github.com
+[push]
+	default = current
+[pull]
+	ff = only
