@@ -1,0 +1,37 @@
+shell = "zsh"
+
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"'
+
+[plugins.mise]
+inline = 'eval "$(mise activate zsh)"'
+
+[plugins.dotfiles-sh]
+local = "~/.config/sh"
+use = ["{*}.sh"]
+
+[plugins.dotfiles-zsh]
+local = "~/.config/zsh"
+use = ["{*}.zsh"]
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+apply = ["source"]
+
+[plugins.compinit]
+inline = "autoload -Uz compinit && zsh-defer compinit"
+
+[plugins.zsh_py_venv_auto_activate]
+github = "ecto0310/zsh_py_venv_auto_activate"

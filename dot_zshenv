@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+if [ -f "${HOME}"/.config/sh/env.sh ]; then
+    source "${HOME}"/.config/sh/env.sh
+fi
